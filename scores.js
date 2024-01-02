@@ -6,13 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
         // Retrieve user data from localStorage (assuming you stored them with a key "highscores")
         const userData = JSON.parse(localStorage.getItem("highscores")) || [];
     
-        console.log("Retrieved user data:", userData);
     
         // Clear existing highscores list
         highscoresList.innerHTML = "";
     
-        if (userData.length > 0) {
-            console.log("Displaying high scores...");  // Add this log
+        if (userData.length > 0) { 
     
             // Display a list of high scores
             userData.forEach((user, index) => {
@@ -21,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 highscoresList.appendChild(listItem);
             });
     
-            console.log("High scores displayed.");  // Add this log
         } else {
             // Display a message when there are no high scores
             const noScoresMessage = document.createElement("li");
@@ -34,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Display highscores when the page loads
     displayHighscores();
-    console.log("Displaying high scores...");
     // Event listener for clearing highscores
     clearButton.addEventListener("click", function () {
         // Clear user data from localStorage
@@ -42,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Clear the highscores list on the page
         displayHighscores();
-        console.log("High scores displayed.");
     });
 });
 
