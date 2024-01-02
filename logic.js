@@ -2,25 +2,19 @@ document.getElementById("start").addEventListener("click", startQuizHandler);
 
 function startQuizHandler() {
     const serverQuestions = questions
-  
     console.log(serverQuestions); 
-  
     questionsData = serverQuestions;
-  
     currentQuestionIndex = 0;
     timeLeft = 60;
     score = 0;
-  
     startQuiz();
   }
 
     function startQuiz() {
       document.getElementById("start-screen").classList.add("hide");
       document.getElementById("questions").classList.remove("hide");
-   
       timeLeft = 60; 
       updateTimer();
-  
       timerInterval = setInterval(function () {
         timeLeft--;
         updateTimer();
@@ -62,7 +56,6 @@ function displayQuestion() {
           endQuiz();
         }
       });
-  
       document.getElementById("choices").appendChild(choiceButton);
     });
   }
@@ -74,28 +67,21 @@ function displayQuestion() {
     document.getElementById("answer-message").appendChild(answerMessage);
   }
   
-  
     function updateTimer() {
       document.getElementById("time").textContent = timeLeft;
     }
   
     function endQuiz() {
       clearInterval(timerInterval);
-  
       document.getElementById("questions").classList.add("hide");
       document.getElementById("end-screen").classList.remove("hide");
-
       document.getElementById("final-score").textContent = score;
     }
-
 document.getElementById("submit").addEventListener("click", submitHandler);
 
 function submitHandler() {
-
     const initials = document.getElementById("initials").value;
-
     const existingScores = JSON.parse(localStorage.getItem("highscores")) || [];
-
     const userData = {
         initials,
         score,
